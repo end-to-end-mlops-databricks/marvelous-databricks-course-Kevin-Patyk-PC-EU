@@ -1,0 +1,40 @@
+{
+    "info": {
+        "artifact_uri": "dbfs:/databricks/mlflow-tracking/401112153022962/69e9e772bee041ef9ba807eddb113037/artifacts",
+        "end_time": 1730212733574,
+        "experiment_id": "401112153022962",
+        "lifecycle_stage": "active",
+        "run_id": "69e9e772bee041ef9ba807eddb113037",
+        "run_name": "demo-run",
+        "run_uuid": "69e9e772bee041ef9ba807eddb113037",
+        "start_time": 1730212731753,
+        "status": "FINISHED",
+        "user_id": ""
+    },
+    "data": {
+        "metrics": {
+            "metric1": 1.0,
+            "metric2": 2.0
+        },
+        "params": {
+            "type": "demo"
+        },
+        "tags": {
+            "branch": "week2",
+            "git_sha": "ffa63b430205ff7",
+            "mlflow.databricks.cluster.id": "1016-151351-vba716wg",
+            "mlflow.databricks.cluster.info": "{\"cluster_name\":\"Kevin Patyk's ML Cluster\",\"spark_version\":\"15.4.x-cpu-ml-scala2.12\",\"node_type_id\":\"Standard_D4ds_v5\",\"driver_node_type_id\":\"Standard_D4ds_v5\",\"autotermination_minutes\":120,\"disk_spec\":{},\"autoscale\":{\"min_workers\":2,\"max_workers\":8,\"target_workers\":2}}",
+            "mlflow.databricks.cluster.libraries": "{\"installable\":[{\"whl\":\"/Volumes/prod_neu/adhoc/files/mlops_end_to_end/mlops_end_to_end-0.1.0-py3-none-any.whl\"}],\"redacted\":[]}",
+            "mlflow.note.content": "demo run",
+            "mlflow.runColor": "#5387dd",
+            "mlflow.runName": "demo-run",
+            "mlflow.source.git.commit": "22a7192891e8883e0776698cce88168b77351c46",
+            "mlflow.source.name": "/kevin/Documents/Projects/marvelous-databricks-course-Kevin-Patyk-PC-EU/notebooks/02_mlflow_experiment.py",
+            "mlflow.source.type": "LOCAL",
+            "mlflow.user": "k.patyk@paulaschoice-eu.com"
+        }
+    },
+    "inputs": {
+        "dataset_inputs": []
+    }
+}

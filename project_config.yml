@@ -1,0 +1,17 @@
+catalog_name: dev_neu
+schema_name: adhoc
+
+num_features:
+  - Age
+  - Weight
+  - Height
+  - Max_BPM
+  - Avg_BPM
+  - Resting_BPM
+  - Session_Duration
+  - Fat_Percentage
+  - Water_Intake
+  - Workout_Frequency
+  - BMI
+
+target: Calories_Burned
