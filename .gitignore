@@ -53,3 +53,7 @@ Thumbs.db
 
 # Ignore .vscode directory
 .vscode/
+
+# Ignore json_files folder
+json_files/
+mlruns/

@@ -1,6 +1,8 @@
 catalog_name: dev_neu
 schema_name: adhoc
 
+parameters: {}
+
 num_features:
   - Age
   - Weight
@@ -13,5 +15,7 @@ num_features:
   - Water_Intake
   - Workout_Frequency
   - BMI
+
+cat_features: []
 
 target: Calories_Burned

@@ -12,6 +12,7 @@ def sample_data():
     Returns a sample DataFrame for testing purposes
     """
     data = {
+        "Id": range(1, 101),  # Adding an Id column with unique IDs
         "feature1": np.random.rand(100),
         "feature2": np.random.rand(100),
         "feature3": np.random.rand(100),
@@ -55,11 +56,11 @@ def test_preprocess(data_processor):
     """
     data_processor.preprocess()
 
-    # After preprocessing, check if the DataFrame only contains the relevant columns
-    assert set(data_processor.df.columns) == set(
-        ["feature1", "feature2", "feature3", "target"]
+    # After preprocessing, check if the DataFrame contains the relevant columns including 'Id'
+    expected_columns = set(
+        data_processor.config.num_features + [data_processor.config.target] + ["Id"]
     )
-    assert data_processor.processor is not None
+    assert set(data_processor.df.columns) == expected_columns
 
 
 def test_split_data(data_processor):
@@ -71,18 +72,3 @@ def test_split_data(data_processor):
 
     assert train_set.shape[0] == 80  # 80% of 100
     assert test_set.shape[0] == 20  # 20% of 100
-
-
-def test_preprocessor_transform(data_processor):
-    """
-    Test the transform method of the DataProcessor class
-    """
-    data_processor.preprocess()
-    X_transformed = data_processor.processor.fit_transform(
-        data_processor.df[data_processor.config.num_features]
-    )
-
-    assert X_transformed.shape == (
-        100,
-        3,
-    )  # Check if the transformed shape matches the number of features

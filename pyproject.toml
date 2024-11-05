@@ -1,3 +1,9 @@
+[project]
+name = "mlops-end-to-end"
+version = "0.1.0"
+description = "A project to implement end-to-end machine learning operations"
+authors = ["Kevin <k.patyk@paulaschoice-eu.com>"]
+
 [tool.poetry]
 name = "mlops-end-to-end"
 version = "0.1.0"

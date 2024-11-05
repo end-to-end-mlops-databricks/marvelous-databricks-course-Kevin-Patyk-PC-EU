@@ -8,9 +8,9 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
 from mlops_end_to_end.config import ProjectConfig
 
-mlflow.set_tracking_uri("databricks")
-mlflow.set_registry_uri(
-    "databricks-uc"
+mlflow.set_registry_uri("databricks-uc")
+mlflow.set_tracking_uri(
+    "databricks"
 )  # It must be -uc for registering models to Unity Catalog
 
 # COMMAND ----------

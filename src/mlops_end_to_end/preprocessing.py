@@ -1,10 +1,7 @@
 import pandas as pd
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import current_timestamp, to_utc_timestamp
-from sklearn.compose import ColumnTransformer
 from sklearn.model_selection import train_test_split
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler
 
 from mlops_end_to_end.config import ProjectConfig
 
@@ -36,16 +33,8 @@ class DataProcessor:
 
         # extract target and relevant features
         target = self.config.target
-        relevant_columns = num_features + [target]
+        relevant_columns = num_features + [target] + ["Id"]
         self.df = self.df[relevant_columns]
-
-        # create preprocessing steps for numerical features
-        numeric_transformer = Pipeline(steps=[("scaler", StandardScaler())])
-
-        # combine preprocessing steps
-        self.processor = ColumnTransformer(
-            transformers=[("num", numeric_transformer, self.config.num_features)]
-        )
 
     def split_data(self, test_size=0.2, random_state=42):
         """
