@@ -15,7 +15,7 @@ Workflow:
    - If it does not exist, create a new serving endpoint with the given configuration.
 4. Configure the endpoint to:
    - Serve the `calories-burned-lr-model-fe` model at the specified version.
-   - Optimize costs by enabling scale-to-zero.
+   - Optimize costs by enabling scale-to-zero functionality.
    - Use a `Small` workload size for serving.
 """
 
