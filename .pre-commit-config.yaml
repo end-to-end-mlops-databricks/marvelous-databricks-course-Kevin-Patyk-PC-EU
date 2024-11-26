@@ -1,17 +1,27 @@
-exclude: ^tests/resources/
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.5.0
     hooks:
-      - id: check-added-large-files
-      - id: check-json
-      - id: check-toml
-      - id: check-yaml
-      - id: end-of-file-fixer
       - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-toml
+      - id: check-added-large-files
+
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.6.9
+    rev: v0.7.3
     hooks:
       - id: ruff
-        args: [--fix, --exit-non-zero-on-fix, --show-fixes]
       - id: ruff-format
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.8.0
+    hooks:
+      - id: mypy
+        files: src
+        args: []
+        additional_dependencies:
+          - numpy==1.23.4
+          - pandas-stubs==1.2.0.19
+          - pydantic==v1.10.7
+          - python-dotenv==1.0.0
+          - typer==0.9.0
