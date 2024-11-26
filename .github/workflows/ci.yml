@@ -22,5 +22,4 @@ jobs:
 
       - name: Run pre-commit checks
         run: |
-          uv pre-commit install
-          uv pre-commit run --all-files
+          pre-commit run --all-files
