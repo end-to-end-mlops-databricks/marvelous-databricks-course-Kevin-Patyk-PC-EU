@@ -1,6 +1,6 @@
 from typing import List, Optional
 
-import yaml
+import yaml  # type: ignore
 from pydantic import BaseModel
 
 

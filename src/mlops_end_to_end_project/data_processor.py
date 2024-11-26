@@ -1,7 +1,7 @@
 import pandas as pd
-from pyspark.sql import SparkSession
-from pyspark.sql.functions import current_timestamp, to_utc_timestamp
-from sklearn.model_selection import train_test_split
+from pyspark.sql import SparkSession  # type: ignore
+from pyspark.sql.functions import current_timestamp, to_utc_timestamp  # type: ignore
+from sklearn.model_selection import train_test_split  # type: ignore
 
 from mlops_end_to_end_project.config import ProjectConfig
 
@@ -22,7 +22,7 @@ class DataProcessor:
         self.df = pandas_df  # store the DataFrame as `self.df`
         self.config = config  # store the configuration as `self.config`
 
-    def preprocess(self) -> pd.DataFrame:
+    def preprocess(self) -> None:
         """
         Preprocess the data, including converting columns to numeric
         and selecting relevant columns.

@@ -35,32 +35,32 @@ resources:
         project_name: "mlops_end_to_end_project"
       job_clusters:
         - job_cluster_key: "mlops-end-to-end-cluster"
-          new_cluster: 
+          new_cluster:
             spark_version: "15.4.x-scala2.12"
             data_security_mode: "SINGLE_USER"
             node_type_id: "Standard_DS3_v2"
             driver_node_type_id: "Standard_DS3_v2"
-            autoscale: 
+            autoscale:
               min_workers: 1
               max_workers: 1
-        
+
       tasks:
         - task_key: "preprocessing"
           job_cluster_key: "mlops-end-to-end-cluster"
           spark_python_task:
             python_file: "scripts/preprocess.py"
-            parameters: 
+            parameters:
               - "--root_path"
               - ${var.root_path}
           libraries:
             - whl: ./dist/*.whl
         - task_key: "train"
-          depends_on: 
+          depends_on:
             - task_key: "preprocessing"
           job_cluster_key: "mlops-end-to-end-cluster"
           spark_python_task:
             python_file: "scripts/train_model_with_fe.py"
-            parameters: 
+            parameters:
               - "--root_path"
               - ${var.root_path}
               - "--git_sha"
@@ -73,9 +73,9 @@ resources:
           depends_on:
             - task_key: "train"
           job_cluster_key: "mlops-end-to-end-cluster"
-          spark_python_task: 
+          spark_python_task:
             python_file: "scripts/deploy_model.py"
-            parameters: 
+            parameters:
               - "--root_path"
               - ${var.root_path}
               - "--job_run_id"
